@@ -1,0 +1,37 @@
+<app-form
+    (actionAdd)="add($event)"
+    (actionEdit)="edit($event)"
+    (actionClear)="clear()"
+    [selectedData]="selectedData"
+></app-form>
+<p-card>
+    <p-table [value]="storeData">
+        <ng-template pTemplate="header">
+            <tr>
+                <th></th>
+                <th>序號</th>
+                <th>製造商</th>
+                <th>類別</th>
+                <th>底價</th>
+                <th>售價</th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-data let-i="rowIndex" [formGroup]="radioBtnFormGroup">
+            <tr>
+                <th>
+                    <p-radioButton formControlName="dataSelect" [value]="data" (onClick)="clickRadioBtn(i)"></p-radioButton>
+                </th>
+                <th>{{data.no}}</th>
+                <th>{{data.producer}}</th>
+                <th>{{data.category}}</th>
+                <th>{{data.basePrice}}</th>
+                <th>{{data.salePrice}}</th>
+                <th>
+                    <p-button label="刪除" icon="pi pi-delete" styleClass="p-button-raised p-button-danger" (click)="delete(i)"></p-button>
+                </th>
+            </tr>
+        </ng-template>
+    </p-table>
+</p-card>
+

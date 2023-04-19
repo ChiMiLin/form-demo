@@ -1,0 +1,50 @@
+<div class="flex justify-content-center">
+    <p-card>
+        <div class="flex flex-column gap-2">
+            <div class="flex flex-column" [formGroup]="formGroup">
+                <div class="flex flex-row gap-2">
+                    <span class="p-float-label flex flex-column">
+                        <input pInputText id="producer" type="text" formControlName="producer"/>
+                        <label htmlFor="producer">製造商</label>
+                        <small *ngIf="invalidObj['producer']" class="p-invalid">
+                            <i class="pi pi-exclamation-triangle"></i>
+                            製造商必填!
+                        </small>
+                    </span>
+                    <span class="p-float-label flex flex-column">
+                        <input pInputText id="category" type="text" formControlName="category"/>
+                        <label htmlFor="category">類別</label>
+                        <small *ngIf="invalidObj['category']" class="p-invalid">
+                            <i class="pi pi-exclamation-triangle"></i>
+                            類別必填!
+                        </small>
+                    </span>
+                </div>
+                <div class="flex flex-row gap-2">
+                    <span class="p-float-label flex flex-column">
+                        <input pInputText id="basePrice" type="text" formControlName="basePrice"/>
+                        <label htmlFor="basePrice">底價</label>
+                        <small *ngIf="invalidObj['basePrice']" class="p-invalid">
+                            <i class="pi pi-exclamation-triangle"></i>
+                            請輸入數字!
+                        </small>
+                    </span>
+                    <span class="p-float-label flex flex-column">
+                        <input pInputText id="salePrice" type="text" formControlName="salePrice"/>
+                        <label htmlFor="salePrice">售價</label>
+                        <small *ngIf="invalidObj['salePrice']" class="p-invalid">
+                            <i class="pi pi-exclamation-triangle"></i>
+                            請輸入數字!
+                        </small>
+                    </span>
+                </div>
+            </div>
+            <div class="flex gap-2 justify-content-end">
+                <p-button label="新增" icon="pi pi-plus" styleClass="p-button-raised p-button-success" (click)="add()"></p-button>
+                <p-toast></p-toast>
+                <p-button pRipple label="修改" icon="pi pi-pencil" styleClass="p-button-raised p-button-warning" (click)="edit()"></p-button>
+                <p-button label="清空" icon="pi pi-replay" styleClass="p-button-raised p-button-primary" (click)="clear()"></p-button>
+            </div>
+        </div>
+    </p-card>
+</div>
